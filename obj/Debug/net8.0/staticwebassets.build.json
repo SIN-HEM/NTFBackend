@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "B7XCzuP3fWO5WvUfurYbut5knjAIJwvXkEw5bcLaRlg=",
+  "Source": "NIFTWebApp",
+  "BasePath": "_content/NIFTWebApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "NIFTWebApp\\wwwroot",
+      "Source": "NIFTWebApp",
+      "ContentRoot": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\",
+      "BasePath": "_content/NIFTWebApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}
