@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NIFTWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5364e650e4db88e1f037c600cf4830f2db81d01d")]
 [assembly: System.Reflection.AssemblyProductAttribute("NIFTWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NIFTWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

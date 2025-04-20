@@ -9,7 +9,7 @@ namespace NIFTWebApp.Modules.ProductModule.Mappings
         public ProductProfile()
         {
             CreateMap<Product, ProductDto>()
-                .ForMember(dest => dest.VendorName, opt => opt.MapFrom(src => src.Vendor.CompanyName))
+                .ForMember(dest => dest.VendorName, opt => opt.MapFrom(src => src.Vendor.Name))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
 
             CreateMap<CreateProductDto, Product>();

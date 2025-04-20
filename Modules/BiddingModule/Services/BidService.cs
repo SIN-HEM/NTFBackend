@@ -1,4 +1,6 @@
-﻿using NIFTWebApp.Modules.BiddingModule.Entities;
+﻿using AutoMapper;
+using NIFTWebApp.Modules.BiddingModule.DTOs;
+using NIFTWebApp.Modules.BiddingModule.Entities;
 using NIFTWebApp.Modules.BiddingModule.Interfaces;
 
 namespace NIFTWebApp.Modules.BiddingModule.Services
@@ -23,8 +25,26 @@ namespace NIFTWebApp.Modules.BiddingModule.Services
         public async Task<BidDto> PlaceBidAsync(CreateBidDto dto)
         {
             var bid = _mapper.Map<Bid>(dto);
+            bid.PlacedAt = DateTime.UtcNow; // ensure timestamp is set
+
             await _bidRepo.AddAsync(bid);
             return _mapper.Map<BidDto>(bid);
         }
+
+        public async Task<BidDto?> GetByIdAsync(int id)
+        {
+            var bid = await _bidRepo.GetByIdAsync(id);
+            return bid == null ? null : _mapper.Map<BidDto>(bid);
+        }
+
+
+        public async Task DeleteAsync(int id)
+        {
+            var bid = await _bidRepo.GetByIdAsync(id);
+            if (bid == null) throw new Exception("Bid not found");
+
+            await _bidRepo.DeleteAsync(id);
+        }
     }
+
 }

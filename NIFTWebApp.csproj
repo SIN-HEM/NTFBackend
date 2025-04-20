@@ -24,12 +24,6 @@
     <Folder Include="Common\Helpers\" />
     <Folder Include="Common\Constants\" />
     <Folder Include="Middleware\" />
-    <Folder Include="Modules\BiddingModule\DTOs\" />
-    <Folder Include="Modules\BiddingModule\Mappings\" />
-    <Folder Include="Modules\UserModule\DTOs\" />
-    <Folder Include="Modules\UserModule\Mappings\" />
-    <Folder Include="Modules\VendorModule\DTOs\" />
-    <Folder Include="Modules\VendorModule\Mappings\" />
     <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 

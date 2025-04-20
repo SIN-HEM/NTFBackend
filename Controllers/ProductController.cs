@@ -11,20 +11,20 @@ namespace NIFTWebApp.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly IMapper _mapper;
+    
 
-        public ProductsController(IProductService productService, IMapper mapper)
+        public ProductsController(IProductService productService)
         {
             _productService = productService;
-            _mapper = mapper;
+         
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productService.GetAllAsync();
-            var dto = _mapper.Map<IEnumerable<ProductDto>>(products);
-            return Ok(dto);
+
+            return Ok(products);
         }
 
         [HttpGet("{id}")]
@@ -32,15 +32,14 @@ namespace NIFTWebApp.Controllers
         {
             var product = await _productService.GetByIdAsync(id);
             if (product == null) return NotFound(); // Fix: Ensure `product` is of a nullable reference type or check for nullability correctly.
-            return Ok(_mapper.Map<ProductDto>(product));
+            return Ok(product);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductDto dto)
         {
-            var product = _mapper.Map<Product>(dto);
-            var created = await _productService.CreateAsync(product);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, _mapper.Map<ProductDto>(created));
+            var created = await _productService.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
 
@@ -50,9 +49,7 @@ namespace NIFTWebApp.Controllers
             var existingProduct = await _productService.GetByIdAsync(id);
             if (existingProduct == null) return NotFound();
 
-            _mapper.Map(dto, existingProduct);
-            await _productService.UpdateAsync(existingProduct);
-
+            await _productService.UpdateAsync(id, dto); 
             return NoContent();
         }
 

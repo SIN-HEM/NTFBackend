@@ -1,36 +1,56 @@
-﻿using NIFTWebApp.Modules.UserModule.Entities;
+﻿using AutoMapper;
+using NIFTWebApp.Modules.UserModule.DTOs;
+using NIFTWebApp.Modules.UserModule.Entities;
 using NIFTWebApp.Modules.UserModule.Interfaces;
 
 namespace NIFTWebApp.Modules.UserModule.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _repo;
+        private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository repo, IMapper mapper)
+        public UserService(IUserRepository repository, IMapper mapper)
         {
-            _repo = repo;
+            _repository = repository;
             _mapper = mapper;
         }
 
         public async Task<IEnumerable<UserDto>> GetAllAsync()
         {
-            var users = await _repo.GetAllAsync();
+            var users = await _repository.GetAllAsync();
             return _mapper.Map<IEnumerable<UserDto>>(users);
         }
 
         public async Task<UserDto?> GetByIdAsync(int id)
         {
-            var user = await _repo.GetByIdAsync(id);
-            return _mapper.Map<UserDto?>(user);
+            var user = await _repository.GetByIdAsync(id);
+            return _mapper.Map<UserDto>(user);
         }
 
         public async Task<UserDto> CreateAsync(CreateUserDto dto)
         {
             var user = _mapper.Map<User>(dto);
-            await _repo.AddAsync(user);
+            await _repository.AddAsync(user);
             return _mapper.Map<UserDto>(user);
         }
+
+        public async Task UpdateAsync(int id, UpdateUserDto dto)
+        {
+            var existing = await _repository.GetByIdAsync(id);
+            if (existing == null) throw new Exception("User not found");
+
+            _mapper.Map(dto, existing);
+            await _repository.UpdateAsync(existing);
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var existing = await _repository.GetByIdAsync(id);
+            if (existing == null) throw new Exception("User not found");
+
+            await _repository.DeleteAsync(id);
+        }
     }
+
 }

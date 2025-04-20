@@ -14,11 +14,25 @@ namespace NIFTWebApp.Modules.VendorModule.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Vendor>> GetAllAsync() =>
-            await _context.Vendors.Include(v => v.Products).ToListAsync();
+        public async Task<IEnumerable<Vendor>> GetAllAsync(bool includeProducts = false)
+        {
+            var query = _context.Vendors.AsQueryable();
 
-        public async Task<Vendor?> GetByIdAsync(int id) =>
-            await _context.Vendors.Include(v => v.Products).FirstOrDefaultAsync(v => v.Id == id);
+            if (includeProducts)
+                query = query.Include(v => v.Products);
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<Vendor?> GetByIdAsync(int id, bool includeProducts = false)
+        {
+            var query = _context.Vendors.AsQueryable();
+
+            if (includeProducts)
+                query = query.Include(v => v.Products);
+
+            return await query.FirstOrDefaultAsync(v => v.Id == id);
+        }
 
         public async Task AddAsync(Vendor vendor)
         {
@@ -32,14 +46,11 @@ namespace NIFTWebApp.Modules.VendorModule.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Vendor vendor)
         {
-            var vendor = await _context.Vendors.FindAsync(id);
-            if (vendor != null)
-            {
-                _context.Vendors.Remove(vendor);
-                await _context.SaveChangesAsync();
-            }
+            _context.Vendors.Remove(vendor);
+            await _context.SaveChangesAsync();
         }
     }
+
 }

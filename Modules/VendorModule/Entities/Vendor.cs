@@ -8,13 +8,13 @@ namespace NIFTWebApp.Modules.VendorModule.Entities
         public int Id { get; set; }
 
         [Required, MaxLength(150)]
-        public string CompanyName { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(100)]
-        public string ContactPerson { get; set; }
+        public string Description { get; set; }
 
         [Required, EmailAddress]
-        public string ContactEmail { get; set; }
+        public string Email { get; set; }
 
         [MaxLength(20)]
         public string PhoneNumber { get; set; }
