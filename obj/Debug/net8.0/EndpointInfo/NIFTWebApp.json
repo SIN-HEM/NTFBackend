@@ -103,6 +103,153 @@
         }
       }
     },
+    "/api/CarouselCard": {
+      "get": {
+        "tags": [
+          "CarouselCard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarouselCardDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarouselCardDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarouselCardDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CarouselCard"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Desc": {
+                    "type": "string"
+                  },
+                  "CouponCode": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Desc": {
+                  "style": "form"
+                },
+                "CouponCode": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CarouselCard/{id}": {
+      "get": {
+        "tags": [
+          "CarouselCard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarouselCardDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarouselCardDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarouselCardDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CarouselCard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Products": {
       "get": {
         "tags": [
@@ -456,49 +603,37 @@
           }
         }
       }
-    },
-    "/WeatherForecast": {
-      "get": {
-        "tags": [
-          "WeatherForecast"
-        ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
+      "CarouselCardDto": {
+        "type": "object",
+        "properties": {
+          "carouselId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "desc": {
+            "type": "string",
+            "nullable": true
+          },
+          "couponCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateBidDto": {
         "type": "object",
         "properties": {
@@ -518,13 +653,20 @@
         "additionalProperties": false
       },
       "CreateProductDto": {
+        "required": [
+          "categoryId",
+          "title",
+          "vendorId"
+        ],
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
+          "title": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
           },
           "description": {
+            "maxLength": 1000,
             "type": "string",
             "nullable": true
           },
@@ -532,11 +674,27 @@
             "type": "number",
             "format": "double"
           },
-          "vendorId": {
+          "imageUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "auctionStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "auctionEnd": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isService": {
+            "type": "boolean"
+          },
+          "categoryId": {
             "type": "integer",
             "format": "int32"
           },
-          "categoryId": {
+          "vendorId": {
             "type": "integer",
             "format": "int32"
           }
@@ -584,13 +742,20 @@
         "additionalProperties": false
       },
       "UpdateProductDto": {
+        "required": [
+          "categoryId",
+          "title",
+          "vendorId"
+        ],
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
+          "title": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
           },
           "description": {
+            "maxLength": 1000,
             "type": "string",
             "nullable": true
           },
@@ -599,10 +764,26 @@
             "format": "double"
           },
           "imageUrl": {
+            "maxLength": 255,
             "type": "string",
             "nullable": true
           },
+          "auctionStart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "auctionEnd": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isService": {
+            "type": "boolean"
+          },
           "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendorId": {
             "type": "integer",
             "format": "int32"
           }
@@ -635,29 +816,6 @@
             "nullable": true
           },
           "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
             "type": "string",
             "nullable": true
           }

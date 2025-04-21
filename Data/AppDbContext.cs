@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NIFTWebApp.Modules.BiddingModule.Entities;
+using NIFTWebApp.Modules.CarouselModule.Entities;
 using NIFTWebApp.Modules.ProductModule.Entities;
 using NIFTWebApp.Modules.UserModule.Entities;
 using NIFTWebApp.Modules.VendorModule.Entities;
@@ -19,6 +20,8 @@ namespace NIFTWebApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Bid> Bids { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<CarouselCard> CarouselCards { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -63,6 +66,12 @@ namespace NIFTWebApp.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            // Configure entity properties if needed
+            modelBuilder.Entity<CarouselCard>(entity =>
+            {
+                entity.Property(c => c.Image).HasColumnType("bytea"); // For PostgreSQL
+            });
         }
     }
 }

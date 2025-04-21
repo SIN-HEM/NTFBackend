@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using NIFTWebApp.Data;
 using NIFTWebApp.Modules.BiddingModule.Interfaces;
 using NIFTWebApp.Modules.BiddingModule.Services;
+using NIFTWebApp.Modules.CarouselModule.Interfaces;
+using NIFTWebApp.Modules.CarouselModule.Services;
 using NIFTWebApp.Modules.ProductModule.Interfaces;
 using NIFTWebApp.Modules.ProductModule.Services;
 using NIFTWebApp.Modules.UserModule.Interfaces;
@@ -19,6 +21,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// For all Profile mappings
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // Product
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -35,8 +40,9 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IVendorService, VendorService>();
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
 
-// For all Profile mappings
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//CarouselCard
+builder.Services.AddScoped<ICarouselCardRepository, CarouselCardRepository>();
+builder.Services.AddScoped<ICarouselCardService, CarouselCardService>();
 
 
 
