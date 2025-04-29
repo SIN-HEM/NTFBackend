@@ -24,6 +24,7 @@
     <Folder Include="Common\Helpers\" />
     <Folder Include="Common\Constants\" />
     <Folder Include="Middleware\" />
+    <Folder Include="wwwroot\images\carouselCards\" />
     <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 

@@ -13,7 +13,9 @@ namespace NIFTWebApp.Modules.CarouselModule.Entities
         [MaxLength(150)]
         public string Title { get; set; }
 
-        public byte[] Image { get; set; } // Stored as binary (BLOB)
+        //public byte[] Image { get; set; } // Stored as binary (BLOB)
+
+        public string imgURL { get; set; } 
 
         [MaxLength(1000)]
         public string Desc { get; set; }

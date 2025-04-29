@@ -13,6 +13,22 @@ namespace NIFTWebApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "CarouselCards",
+                columns: table => new
+                {
+                    CarouselId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Title = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    imgURL = table.Column<string>(type: "text", nullable: false),
+                    Desc = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
+                    CouponCode = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarouselCards", x => x.CarouselId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
@@ -171,6 +187,9 @@ namespace NIFTWebApp.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Bids");
+
+            migrationBuilder.DropTable(
+                name: "CarouselCards");
 
             migrationBuilder.DropTable(
                 name: "Products");

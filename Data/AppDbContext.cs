@@ -65,13 +65,7 @@ namespace NIFTWebApp.Data
             // User: Email unique
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
-                .IsUnique();
-
-            // Configure entity properties if needed
-            modelBuilder.Entity<CarouselCard>(entity =>
-            {
-                entity.Property(c => c.Image).HasColumnType("bytea"); // For PostgreSQL
-            });
+                .IsUnique(); 
         }
     }
 }

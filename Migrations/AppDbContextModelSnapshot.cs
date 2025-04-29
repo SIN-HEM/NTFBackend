@@ -72,14 +72,14 @@ namespace NIFTWebApp.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("bytea");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
+
+                    b.Property<string>("imgURL")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("CarouselId");
 

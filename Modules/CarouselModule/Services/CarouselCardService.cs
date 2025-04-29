@@ -16,16 +16,19 @@ namespace NIFTWebApp.Modules.CarouselModule.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CarouselCardResponseDto>> GetAllAsync()
+        public async Task<IEnumerable<CarouselCardDto>> GetAllAsync()
         {
             var cards = await _repo.GetAllAsync();
-            return _mapper.Map<IEnumerable<CarouselCardResponseDto>>(cards);
+            return _mapper.Map<IEnumerable<CarouselCardDto>>(cards);
         }
 
-        public async Task<CarouselCardResponseDto?> GetByIdAsync(int id)
+        public async Task<CarouselCardDto?> GetByIdAsync(int id)
         {
             var card = await _repo.GetByIdAsync(id);
-            return card == null ? null : _mapper.Map<CarouselCardResponseDto>(card);
+            if (card == null)
+                return null;
+
+            return _mapper.Map<CarouselCardDto>(card);
         }
 
         public async Task<CarouselCardDto> CreateAsync(CarouselCardDto dto)

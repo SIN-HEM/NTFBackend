@@ -110,6 +110,11 @@
         "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
+      },
+      {
+        "Name": "ImgURL",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

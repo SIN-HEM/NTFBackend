@@ -33,10 +33,11 @@ namespace NIFTWebApp.Modules.CarouselModule.Services
 
         public async Task DeleteAsync(int id)
         {
-            var cc = await _context.Bids.FindAsync(id);
+     
+            var cc = await _context.CarouselCards.FindAsync(id);
             if (cc != null)
             {
-                _context.Bids.Remove(cc);
+                _context.CarouselCards.Remove(cc);
                 await _context.SaveChangesAsync();
             }
         }

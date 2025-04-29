@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NIFTWebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250420041258_InitialCreate")]
+    [Migration("20250429152019_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -55,6 +55,38 @@ namespace NIFTWebApp.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Bids");
+                });
+
+            modelBuilder.Entity("NIFTWebApp.Modules.CarouselModule.Entities.CarouselCard", b =>
+                {
+                    b.Property<int>("CarouselId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CarouselId"));
+
+                    b.Property<string>("CouponCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<string>("imgURL")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("CarouselId");
+
+                    b.ToTable("CarouselCards");
                 });
 
             modelBuilder.Entity("NIFTWebApp.Modules.ProductModule.Entities.Category", b =>
