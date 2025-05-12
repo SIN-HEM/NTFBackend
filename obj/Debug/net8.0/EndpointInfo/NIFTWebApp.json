@@ -715,7 +715,7 @@
       "CreateUserDto": {
         "type": "object",
         "properties": {
-          "fullName": {
+          "username": {
             "type": "string",
             "nullable": true
           },
@@ -804,7 +804,7 @@
       "UpdateUserDto": {
         "type": "object",
         "properties": {
-          "fullName": {
+          "username": {
             "type": "string",
             "nullable": true
           },

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CdrqUlbjyms=",
+  "dgSpecHash": "TrzmjOq/OHs=",
   "success": true,
   "projectFilePath": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\NIFTWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\si-he\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\si-he\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\si-he\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\si-he\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\si-he\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",

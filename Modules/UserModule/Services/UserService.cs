@@ -30,7 +30,14 @@ namespace NIFTWebApp.Modules.UserModule.Services
 
         public async Task<UserDto> CreateAsync(CreateUserDto dto)
         {
-            var user = _mapper.Map<User>(dto);
+            var u = new User
+            {
+                Username = dto.Username,
+                Email = dto.Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password), // Hash the password
+                Role = "User"
+            };
+            var user = _mapper.Map<User>(u);
             await _repository.AddAsync(user);
             return _mapper.Map<UserDto>(user);
         }

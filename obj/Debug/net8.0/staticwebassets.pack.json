@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NIFTWebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NIFTWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.NIFTWebApp.props",
+      "PackagePath": "build\\NIFTWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.NIFTWebApp.props",
+      "PackagePath": "buildMultiTargeting\\NIFTWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.NIFTWebApp.props",
+      "PackagePath": "buildTransitive\\NIFTWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

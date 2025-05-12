@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "B7XCzuP3fWO5WvUfurYbut5knjAIJwvXkEw5bcLaRlg=",
+  "Hash": "fedXUBBj/XYWqOlUz06dpwsb/mmBYkcSsAi7BDBLqis=",
   "Source": "NIFTWebApp",
   "BasePath": "_content/NIFTWebApp",
   "Mode": "Default",
@@ -15,6 +15,111 @@
       "Pattern": "**"
     }
   ],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg",
+      "SourceId": "NIFTWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\",
+      "BasePath": "_content/NIFTWebApp",
+      "RelativePath": "images/carouselCards/6bf7780f-8338-4c6e-aee2-1b2336be3a5f#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mobev8gn6i",
+      "Integrity": "ppFweaxHhgUREez6ZD9USJBrMbmVpNG74MN1+0p4XLo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/carouselCards/6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg",
+      "AssetFile": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "645539"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppFweaxHhgUREez6ZD9USJBrMbmVpNG74MN1+0p4XLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Apr 2025 16:32:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppFweaxHhgUREez6ZD9USJBrMbmVpNG74MN1+0p4XLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/carouselCards/6bf7780f-8338-4c6e-aee2-1b2336be3a5f.mobev8gn6i.jpg",
+      "AssetFile": "C:\\Users\\si-he\\OneDrive\\Desktop\\NTFViraat\\NIFTWebApp\\NIFTWebApp\\wwwroot\\images\\carouselCards\\6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "645539"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ppFweaxHhgUREez6ZD9USJBrMbmVpNG74MN1+0p4XLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Apr 2025 16:32:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mobev8gn6i"
+        },
+        {
+          "Name": "label",
+          "Value": "images/carouselCards/6bf7780f-8338-4c6e-aee2-1b2336be3a5f.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ppFweaxHhgUREez6ZD9USJBrMbmVpNG74MN1+0p4XLo="
+        }
+      ]
+    }
+  ]
 }
